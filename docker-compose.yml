@@ -1,0 +1,78 @@
+version: '3'
+services:
+  masif-upgrader-ui:
+    image: masifupgrader/icingaweb2-module-masifupgrader
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+  mysql:
+    image: masifupgrader/demo-mysqld
+    ports:
+      - "53306:3306"
+  masif-upgrader-master:
+    image: masifupgrader/master
+    ports:
+      - "58150:8150"
+    depends_on:
+      - mysql
+  masif-upgrader-agent-1:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=1"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-2:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=2"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-3:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=3"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-4:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=4"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-5:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=5"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-6:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=6"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-7:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=7"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-8:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=8"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-9:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=9"
+    depends_on:
+      - masif-upgrader-master
+  masif-upgrader-agent-10:
+    image: masifupgrader/agent
+    environment:
+      - "MUAGENT=10"
+    depends_on:
+      - masif-upgrader-master
